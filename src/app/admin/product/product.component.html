@@ -1,0 +1,53 @@
+<form [formGroup]="formProduct" (ngSubmit)="onSubmit()" autocomplete="off">
+  <h1 mat-dialog-title>{{actionType}}</h1>
+  <div class="row">
+    <div mat-dialog-content class="col-md-8 col-lg-8 col-sm-6">
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Tên sản phẩm:</mat-label>
+        <input matInput placeholder="Nhập sản phẩm" formControlName="name" name="name">
+        <mat-error>Nhập sai trường dữ liệu</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Loại:</mat-label>
+        <mat-select [(value)]="selected" placeholder="Loại sản phẩm" formControlName="category" name="category" required >
+          <mat-option [value]="c.id" *ngFor="let c of categories">{{c.name}}</mat-option>
+        </mat-select>
+        <mat-error>Mời chọn loại sản phẩm</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Giá:</mat-label>
+        <input matInput type="text" placeholder="Nhập giá" formControlName="price" name="price">
+        <mat-error>Nhập sai trường dữ liệu</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Số lượng:</mat-label>
+        <input matInput type="text" placeholder="Nhập số lượng" formControlName="quantity" name="quantity">
+        <mat-error>Nhập sai trường dữ liệu</mat-error>
+      </mat-form-field>
+      <br>
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Khối lượng:</mat-label>
+        <input matInput type="text" placeholder="Nhập khối lượng" formControlName="weight" name="weight">
+        <mat-error>Nhập sai trường dữ liệu</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" floatLabel="always">
+        <mat-label>Chi tiết:</mat-label>
+        <textarea matInput placeholder="Thêm mô tả chi tiết" formControlName="description"
+                  name="description">
+        </textarea>
+      </mat-form-field>
+    </div>
+    <div class="col-md-4 col-lg-4 col-sm-5">
+      <label for="img">Ảnh sản phẩm</label>
+      <br>
+      <img id="img" [src]="imageUrl" alt="" style="border-radius: 15px; width: 80%">
+      <br>
+      <input type="file" #uploadFile (change)="handleImage()" class="file-upload-info">
+    </div>
+  </div>
+  <div mat-dialog-actions [align]="'end'" style="margin-right: 40px; padding-right: 30px">
+    <button mat-raised-button color="accent" mat-dialog-close>Thoát</button>
+      <button type="submit" mat-raised-button color="warn" [disabled]="formProduct.invalid || imageUrl==''">Xác nhận</button>
+  </div>
+</form>

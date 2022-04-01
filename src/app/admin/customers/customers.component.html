@@ -1,0 +1,38 @@
+<div class="col-lg-12 grid-margin stretch-card">
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Danh sách khách hàng</h4>
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+          <tr>
+            <th>User</th>
+            <th> Họ và tên</th>
+            <th> Thống kê</th>
+            <th>Tổng tiền</th>
+            <th>Phone</th>
+            <th>Email</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let customer of customers">
+            <td class="py-1">
+              <img src="{{customer.avatar}}" alt="image">
+            </td>
+            <td>{{customer.fullName}}</td>
+            <td>
+              <div class="progress">
+                <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25"
+                     aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+            </td>
+            <td> $ </td>
+            <td> {{customer.phone}}</td>
+            <td>{{customer.email}}</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

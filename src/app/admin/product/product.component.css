@@ -1,0 +1,21 @@
+.mat-form-field {
+  margin: 8px;
+}
+.mat-form-field ::placeholder{
+  color: var(--white);
+  font-style: italic;
+  font-size: small;
+}
+
+.mat-input-element {
+  color: white;
+}
+
+.mat-dialog-content {
+  text-align: -moz-center;
+  margin-left: 0;
+  padding: 5px;
+  border: 0;
+}
+
+
